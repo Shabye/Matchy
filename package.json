@@ -1,12 +1,10 @@
 {
-  "name": "Matchy",
+  "name": "matchy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
-  "types": "index.d.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.ts"
+    "tsc": "tsc -w --skipLibCheck"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +12,17 @@
   "dependencies": {
     "discord.js": "^13.6.0",
     "dotenv": "^12.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smoothzy/Matchy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Smoothzy/Matchy/issues"
+  },
+  "homepage": "https://github.com/Smoothzy/Matchy#readme",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^4.5.4"
   }
 }

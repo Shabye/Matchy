@@ -24,6 +24,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = __importStar(require("discord.js"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const wokCommands_1 = __importDefault(require("wokCommands"));
+const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
 const client = new discord_js_1.default.Client({
     intents: [
@@ -34,37 +36,39 @@ const client = new discord_js_1.default.Client({
         discord_js_1.Intents.FLAGS.GUILD_VOICE_STATES,
     ],
 });
-client.on("ready", () => {
-    console.log("Bot is ready");
-    const repeatFunction = setInterval(function () {
-        var getMembers = [];
-        var guild = client.guilds.cache.get("932374576770461726");
-        var voiceChannel = guild === null || guild === void 0 ? void 0 : guild.channels.cache.get('932374577210851389');
-        voiceChannel.members.forEach(m => {
-            console.log(m.user.username);
-        });
-        //Array.from(voiceChannel)
-        //getMembers.push(voiceChannel)
-        //
-        //getMembers.forEach(element => {
-        //
-        //  
-        //});
-        if (getMembers.length > 1) {
-            console.log("No users in voicechannel");
-        }
-        else {
-            console.log("Users in voicechannel");
-        }
-    }, 5000);
-    repeatFunction;
+client.on('ready', () => {
+    new wokCommands_1.default(client, {
+        commandsDir: path_1.default.join(__dirname, 'commands'),
+        testServers: ['932374576770461726']
+    });
 });
-client.on("messageCreate", (message) => {
-    if (message.content === "ping") {
-        message.reply({
-            content: "pong",
-        });
-    }
-});
+//client.on("ready", () => {
+//console.log("Bot is ready");
+//let handler = require("./command-handler");
+//if (handler.default) {
+//  handler = handler.default;
+//}
+//handler(client);
+//const repeatFunction = setInterval(function () {
+//  var getMembers = [];
+//
+//  var guild = client.guilds.cache.get("932374576770461726");
+//  var voiceChannel = guild?.channels.cache.get(
+//    "932374577210851389"
+//  ) as GuildChannel;
+//
+//  voiceChannel.members.forEach((m) => {
+//    getMembers.push(m.user);
+//  });
+//
+//  if (getMembers.length > 1) {
+//    console.log("No users in voicechannel");
+//  } else {
+//    console.log("Users in voicechannel");
+//  }
+//}, 5000);
+//
+//repeatFunction;
+//});
 client.login(process.env.TOKEN);
 //# sourceMappingURL=index.js.map

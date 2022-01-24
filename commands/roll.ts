@@ -9,7 +9,8 @@ export default {
   expectedArgs: "<number1>",
   callback: ({ message, interaction, args }) => {
     let reply = "";
-    if (args[0] != "") {
+    console.log(args[0]);
+    if (args[0] != undefined) {
       reply = `You rolled ${Math.floor(Math.random() * parseInt(args[0]))}`;
     } else {
       reply = `You rolled ${Math.floor(Math.random() * 11)}`;

@@ -28,7 +28,17 @@ class scalingChannels {
                         allowCreate = false;
                     }
                     if (allowCreate) {
-                        var createChName = `${(_b = newState.member) === null || _b === void 0 ? void 0 : _b.user.username} Fanclub`;
+                        const Fun = [
+                            " Fanclub",
+                            "'s Harem",
+                            " at Queenstown",
+                            " & Chill",
+                            " Gang",
+                            " Hideaway",
+                            " Corner",
+                            " Sleepover",
+                        ];
+                        var createChName = `${(_b = newState.member) === null || _b === void 0 ? void 0 : _b.user.username} ${Fun[Math.floor(Math.random() * Fun.length)]}`;
                         var createdCh = guild.channels.create(createChName, {
                             type: "GUILD_VOICE",
                             parent: "934980418489434163",

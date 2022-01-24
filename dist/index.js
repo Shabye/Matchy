@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = __importStar(require("discord.js"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const wokCommands_1 = __importDefault(require("wokCommands"));
+const wokcommands_1 = __importDefault(require("wokcommands"));
 const path_1 = __importDefault(require("path"));
 const scalingChannels_1 = require("./actions/scalingChannels");
 dotenv_1.default.config();
@@ -40,7 +40,7 @@ const client = new discord_js_1.default.Client({
 client.on("ready", () => {
     let scale = new scalingChannels_1.scalingChannels();
     scale.scaleChannel(client);
-    new wokCommands_1.default(client, {
+    new wokcommands_1.default(client, {
         commandsDir: path_1.default.join(__dirname, "commands"),
         testServers: ["932374576770461726"],
     });

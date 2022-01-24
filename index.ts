@@ -1,6 +1,6 @@
 import DiscordJS, { Client, GuildChannel, Intents } from "discord.js";
 import dotenv from "dotenv";
-import WOKCommands from "wokCommands";
+import WOKCommands from "wokcommands";
 import path from "path";
 import { scalingChannels } from "./actions/scalingChannels";
 dotenv.config();

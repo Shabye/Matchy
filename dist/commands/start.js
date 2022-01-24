@@ -5,6 +5,7 @@ exports.default = {
     description: "Starts matcher",
     slash: "both",
     //testOnly: true, // Only register a slash command for the testing guilds
+    permissions: ['ADMINISTRATOR'],
     callback: ({ message, interaction, client }) => {
         const reply = "Matcher has started!";
         var getMembers = [];

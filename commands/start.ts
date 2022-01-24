@@ -6,7 +6,8 @@ export default {
   description: "Starts matcher", // Required for slash commands
   slash: "both", // Create both a slash and legacy command
   //testOnly: true, // Only register a slash command for the testing guilds
-
+  permissions: ['ADMINISTRATOR'],
+  
   callback: ({ message, interaction, client }) => {
     const reply = "Matcher has started!";
     var getMembers = [] as Array<GuildMember>;

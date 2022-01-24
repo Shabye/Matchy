@@ -4,7 +4,7 @@ exports.default = {
     category: "Testing",
     description: "Replies with pong",
     slash: "both",
-    testOnly: true,
+    //testOnly: true, // Only register a slash command for the testing guilds
     callback: ({ message, interaction }) => {
         const reply = "Pong!";
         // message is provided for a legacy command

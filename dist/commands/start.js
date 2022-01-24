@@ -16,12 +16,10 @@ exports.default = {
             voiceChannel.members.forEach((m) => {
                 getMembers.push(m);
             });
-            //console.log(getMembers);
             var matchFound = false;
             if (getMembers.length >= 2) {
                 matchFound = true;
                 stopSearch();
-                //const channel = guild?.channels.cache.get("932374577210851389");
                 if (matchFound) {
                     let channelName = `${getMembers[0].user.username} + ${getMembers[1].user.username}`;
                     var createdCh = guild === null || guild === void 0 ? void 0 : guild.channels.create(channelName, {
@@ -41,19 +39,7 @@ exports.default = {
         function stopSearch() {
             clearInterval(intva);
         }
-        var deleteArray = [];
         function deleteCh(val, Mem1, Mem2) {
-            //deleteArray.push(val);
-            //deleteArray.forEach((e) => {
-            //  e.createdTimestamp;
-            //  var der = new Date(e.createdTimestamp);
-            //  console.log(der);
-            //  var lastTime = 0;
-            //
-            //  if (Math.floor((new Date() - e.createdTimestamp) / 60000) < 2) {
-            //    // get from variable
-            //  }
-            //});
             setTimeout(() => {
                 Mem1.voice.setChannel("932374577210851389").catch((error) => {
                     console.error(error);

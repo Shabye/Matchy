@@ -17,7 +17,6 @@ const client = new DiscordJS.Client({
 
 client.on("ready", () => {
   let scale = new scalingChannels();
-
   scale.scaleChannel(client)
 
   new WOKCommands(client, {
@@ -25,34 +24,5 @@ client.on("ready", () => {
     testServers: ["932374576770461726"],
   });
 });
-
-//client.on("ready", () => {
-//console.log("Bot is ready");
-//let handler = require("./command-handler");
-//if (handler.default) {
-//  handler = handler.default;
-//}
-//handler(client);
-//const repeatFunction = setInterval(function () {
-//  var getMembers = [];
-//
-//  var guild = client.guilds.cache.get("932374576770461726");
-//  var voiceChannel = guild?.channels.cache.get(
-//    "932374577210851389"
-//  ) as GuildChannel;
-//
-//  voiceChannel.members.forEach((m) => {
-//    getMembers.push(m.user);
-//  });
-//
-//  if (getMembers.length > 1) {
-//    console.log("No users in voicechannel");
-//  } else {
-//    console.log("Users in voicechannel");
-//  }
-//}, 5000);
-//
-//repeatFunction;
-//});
 
 client.login(process.env.TOKEN);

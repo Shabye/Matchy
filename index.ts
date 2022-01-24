@@ -18,7 +18,7 @@ const client = new DiscordJS.Client({
 client.on("ready", () => {
   let scale = new scalingChannels();
 
-  scale.scaleChannel(client)
+  scale.scaleChannel(client);
 
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),

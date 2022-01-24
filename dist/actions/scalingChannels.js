@@ -10,8 +10,8 @@ class scalingChannels {
             const { guild } = oldstate;
             const joined = !!newState.channelId;
             let everyone = guild.roles.cache.find((r) => r.name === "@everyone");
-            let memberRole = guild.roles.cache.find((r) => r.name === "@member");
-            let mods = guild.roles.cache.find((r) => r.name === "@KING'S BITCHES");
+            let memberRole = guild.roles.cache.find((r) => r.name === "member");
+            let mods = guild.roles.cache.find((r) => r.name === "KING'S BITCHES");
             const channelId = joined ? newState.channelId : oldstate.channelId;
             const channel = guild.channels.cache.get(channelId);
             console.log((_a = newState.member) === null || _a === void 0 ? void 0 : _a.user.username);
@@ -24,14 +24,19 @@ class scalingChannels {
                             allowCreate = false;
                         }
                     });
+                    if (createdChs.length == 10) {
+                        allowCreate = false;
+                    }
                     if (allowCreate) {
                         var createChName = `${(_b = newState.member) === null || _b === void 0 ? void 0 : _b.user.username} Fanclub`;
                         var createdCh = guild.channels.create(createChName, {
                             type: "GUILD_VOICE",
-                            parent: "934980418489434163"
+                            parent: "934980418489434163",
                         });
                         let member = (_c = newState.member) === null || _c === void 0 ? void 0 : _c.user.id;
                         createdCh === null || createdCh === void 0 ? void 0 : createdCh.then((val) => {
+                            var _a;
+                            (_a = newState.member) === null || _a === void 0 ? void 0 : _a.voice.setChannel(val);
                             createdChs.push({ ch: val, member: member });
                         });
                     }

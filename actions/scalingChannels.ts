@@ -20,10 +20,10 @@ export class scalingChannels {
         (r) => r.name === "@everyone"
       ) as Role;
       let memberRole = guild.roles.cache.find(
-        (r) => r.name === "@member"
+        (r) => r.name === "member"
       ) as Role;
       let mods = guild.roles.cache.find(
-        (r) => r.name === "@KING'S BITCHES"
+        (r) => r.name === "KING'S BITCHES"
       ) as Role;
 
       const channelId = joined ? newState.channelId : oldstate.channelId;
@@ -41,14 +41,18 @@ export class scalingChannels {
               allowCreate = false;
             }
           });
+          if (createdChs.length == 10) {
+            allowCreate = false;
+          }
           if (allowCreate) {
             var createChName = `${newState.member?.user.username} Fanclub`;
             var createdCh = guild.channels.create(createChName, {
               type: "GUILD_VOICE",
-              parent: "934980418489434163"
+              parent: "934980418489434163",
             });
             let member: String = newState.member?.user.id as String;
             createdCh?.then((val) => {
+              newState.member?.voice.setChannel(val);
               createdChs.push({ ch: val, member: member });
             });
           } else {

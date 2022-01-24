@@ -5,8 +5,15 @@ exports.default = {
     description: "Replies with pong",
     slash: "both",
     //testOnly: true, // Only register a slash command for the testing guilds
-    callback: ({ message, interaction }) => {
-        let reply = `You rolled ${Math.floor(Math.random() * 11)}`;
+    expectedArgs: "<number1>",
+    callback: ({ message, interaction, args }) => {
+        let reply = "";
+        if (args[0] != "") {
+            reply = `You rolled ${Math.floor(Math.random() * parseInt(args[0]))}`;
+        }
+        else {
+            reply = `You rolled ${Math.floor(Math.random() * 11)}`;
+        }
         // message is provided for a legacy command
         if (message) {
             message.reply({

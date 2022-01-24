@@ -25,6 +25,7 @@ exports.default = {
     description: "Set role",
     slash: "both",
     //testOnly: true,
+    permissions: ['ADMINISTRATOR'],
     callback: ({ message, interaction }) => {
         const reply = "Pong!";
         const options = [

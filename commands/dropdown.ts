@@ -8,7 +8,7 @@ export default {
   slash: "both",
   //testOnly: true,
   permissions: ['ADMINISTRATOR'],
-  
+
   callback: ({ message, interaction }) => {
     const reply = "Pong!";
 

@@ -1,6 +1,6 @@
 import DiscordJS, { Client, GuildChannel, Intents } from "discord.js";
 import dotenv from "dotenv";
-import WOKCommands from "wokCommands";
+//import WOKCommands from "wokCommands";
 import path from "path";
 import { scalingChannels } from "./actions/scalingChannels";
 dotenv.config();
@@ -20,10 +20,10 @@ client.on("ready", () => {
 
   scale.scaleChannel(client)
 
-  new WOKCommands(client, {
-    commandsDir: path.join(__dirname, "commands"),
-    testServers: ["932374576770461726"],
-  });
+  //new WOKCommands(client, {
+  //  commandsDir: path.join(__dirname, "commands"),
+  //  testServers: ["932374576770461726"],
+  //});
 });
 
 //client.on("ready", () => {

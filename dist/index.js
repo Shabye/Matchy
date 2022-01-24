@@ -27,6 +27,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const wokcommands_1 = __importDefault(require("wokcommands"));
 const path_1 = __importDefault(require("path"));
 const scalingChannels_1 = require("./actions/scalingChannels");
+const addRole_1 = require("./actions/addRole");
 dotenv_1.default.config();
 const client = new discord_js_1.default.Client({
     intents: [
@@ -39,7 +40,9 @@ const client = new discord_js_1.default.Client({
 });
 client.on("ready", () => {
     let scale = new scalingChannels_1.scalingChannels();
+    let addRoles = new addRole_1.addRole();
     scale.scaleChannel(client);
+    addRoles.dropDownAdd(client);
     new wokcommands_1.default(client, {
         commandsDir: path_1.default.join(__dirname, "commands"),
         testServers: ["932374576770461726"],

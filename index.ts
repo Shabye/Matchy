@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import WOKCommands from "wokcommands";
 import path from "path";
 import { scalingChannels } from "./actions/scalingChannels";
+import { addRole } from "./actions/addRole";
 dotenv.config();
 
 const client = new DiscordJS.Client({
@@ -17,9 +18,11 @@ const client = new DiscordJS.Client({
 
 client.on("ready", () => {
   let scale = new scalingChannels();
+  let addRoles = new addRole();
 
   scale.scaleChannel(client);
-
+  addRoles.dropDownAdd(client);
+  
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     testServers: ["932374576770461726"],

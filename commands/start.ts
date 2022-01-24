@@ -1,15 +1,11 @@
 import { ICommand } from "wokcommands";
-import {
-  GuildChannel,
-  GuildMember,
-  VoiceChannel,
-} from "discord.js";
+import { GuildChannel, GuildMember, VoiceChannel } from "discord.js";
 
 export default {
   category: "matcher",
   description: "Starts matcher", // Required for slash commands
   slash: "both", // Create both a slash and legacy command
-  //testOnly: true, // Only register a slash command for the testing guilds
+  testOnly: true, // Only register a slash command for the testing guilds
 
   callback: ({ message, interaction, client }) => {
     const reply = "Matcher has started!";
